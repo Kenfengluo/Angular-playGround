@@ -33,7 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of products">
+                    <tr *ngFor="let item of filteredProducts">
                         <td>
                             <img *ngIf="showImage"
                             [src]='item.imageUrl' 
@@ -42,7 +42,7 @@
                             [style.margin.px]='imageMargin' />
                         </td>
                         <td>{{ item.productName | uppercase}}</td>
-                        <td>{{ item.productCode }}</td>
+                        <td>{{ item.productCode | lowercase | convertToSpaces: '-'}}</td>
                         <td>{{ item.releaseDate }}</td>
                         <td>{{ item.price | currency:'USD':'symbol':'1.2-2'}}</td>
                         <td>{{ item.starRating }}</td>
